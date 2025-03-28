@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title><strong>CHESSBOARD!</strong></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color:white;
+        }
+
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            border: 5px solid black;
+            width: 400px;
+            height: 400px;
+            margin: 20px 0;
+        }
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+        .black {
+            background-color:hotpink;
+        }
+        .white {
+            background-color: white;
+        }
+        .horizontal-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color:#555;
+            overflow: hidden;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .horizontal-menu li 
+        {
+            display: inline;
+        }
+        .horizontal-menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .horizontal-menu li a:hover {
+            background-color: #555;
+        }
+        .vertical-menu {
+            list-style-type: none;
+            margin: 20px 0;
+            padding: 0;
+            width: 200px;
+            background-color:hotpink;
+        }
+        .vertical-menu li {
+            display: block;
+        }
+        .vertical-menu li a {
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .vertical-menu li a:hover {
+            background-color:burlywood;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="horizontal-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+
+    <div class="chessboard">
+        <script>
+            let chessboard = document.querySelector('.chessboard');
+            for (let row = 0; row < 8; row++) {
+                for (let col = 0; col < 8; col++) 
+                {
+                    let square = document.createElement('div');
+                    square.classList.add('square', (row + col) % 2 === 0 ? 'white' : 'black');
+                    chessboard.appendChild(square);
+                }
+            }
+        </script>
+    </div>
+
+    <ul class="vertical-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+</body>
+</html>
